@@ -1,0 +1,18 @@
+services:
+#  web:
+#    build: .
+#    ports:
+#      - 3306:3306
+  db:
+    container_name: 'guide_msql'
+    image: mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=looja
+    volumes:
+      - mysql-volume:/var/lib/mysql
+volumes:
+  mysql-volume:
+    driver: local
